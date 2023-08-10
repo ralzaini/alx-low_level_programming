@@ -4,9 +4,9 @@
  * main - Entry point
  *
  * Description: printing using puts
- * 
+ *
  * Return: Always 0 (Success)
- */
+*/
 
 int main(void)
 {

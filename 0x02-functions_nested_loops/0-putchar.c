@@ -11,14 +11,15 @@
 
 int main(void)
 {
-	_putchar('_');
-	_putchar('p');
-	_putchar('u');
-	_putchar('t');
-	_putchar('c');
-	_putchar('h');
-	_putchar('a');
-	_putchar('r');
+	size_t i = 0;
+	char p[] = "_putchar";
+	size_t n = sizeof(p) / sizeof(p[0]);
+
+	while (i < n - 1)
+	{
+		_putchar(p[i]);
+		i++;
+	}
 	_putchar('\n');
 
 	return (0);

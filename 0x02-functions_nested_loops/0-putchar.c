@@ -11,11 +11,10 @@
 
 int main(void)
 {
-	size_t i = 0;
+	int i = 0;
 	char put[] = "_putchar";
-	size_t n  = sizeof(put) / sizeof(put[0]);
 
-	while (i < n)
+	while (i < 9)
 	{
 		_putchar(put[i]);
 		i++;

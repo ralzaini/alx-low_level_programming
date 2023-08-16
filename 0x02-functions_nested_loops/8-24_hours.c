@@ -8,27 +8,32 @@ i* Return: no return
 
 void jack_bauer(void)
 {
-	int i, j, k, l;
-
-	for (i = 0; i <= 2; i++)
+ 	for (int t =0; t < 24; t++)
 	{
-		for (j = 0; j <= 9; j++)
+	       	for (int i = 0; i < 60; i++)
 		{
-			if ((i <= 1 && j <= 9) || (i <= 2 && j <= 3))
+			if (t < 10)
 			{
-				for (k = 0; k <= 5; k++)
-				{
-					for (l = 0; l <= 9; l++)
-					{
-						_putchar('0' + i);
-						_putchar('0' + j);
-						_putchar(58);
-						_putchar('0' + k);
-						_putchar('0' + l);
-						_putchar('\n');
-					}
-				}
+				_putchar('0');
+				_putchar('0' + t);
 			}
+			else
+			{
+				_putchar('0' + t / 10);
+				_putchar('0' + t % 10);
+			}
+			_putchar(':');
+			if (i < 10)
+			{
+				_putchar('0');
+				_putchar('0' + i);
+			}
+			else
+			{
+				_putchar('0' + i / 10);
+				_putchar('0' + i % 10);
+			}
+			_putchar('\n');
 		}
 	}
 }

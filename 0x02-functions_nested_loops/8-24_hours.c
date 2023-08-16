@@ -8,9 +8,11 @@ i* Return: no return
 
 void jack_bauer(void)
 {
- 	for (int t =0; t < 24; t++)
+ 	int t, i;
+
+	for (t =0; t < 24; t++)
 	{
-	       	for (int i = 0; i < 60; i++)
+		for (i = 0; i < 60; i++)
 		{
 			if (t < 10)
 			{

@@ -8,9 +8,9 @@
 
 int main(void)
 {
-	int i = 0;
+	int i;
 
-	for (i = 0; i <= 100; i++)
+	for (i = 1; i <= 100; i++)
 	{
 		if (i != 100)
 		{
@@ -36,4 +36,5 @@ int main(void)
 			printf("Buzz\n");
 		}
 	}
+	return (0);
 }

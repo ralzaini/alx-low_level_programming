@@ -14,8 +14,15 @@ int main(void)
 	for (i = 0; i < 50; i++)
 	{
 		sum = j + k;
-		printf("%ld, ", sum);
+		if (i < 49)
+		{
+			printf("%ld, ", sum);
+		}
+		else
+		{
+			printf("%ld\n", sum);
 
+		}
 		j = k;
 		k = sum;
 	}

@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _isupper - checks for uppercase character.
+ * _isdigit - checks for digits.
  * @c: The character in ASCII code
  * Return: Always 0 (Success)
  */

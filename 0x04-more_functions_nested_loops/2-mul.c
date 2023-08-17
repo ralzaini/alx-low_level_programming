@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
- * mul - returns the multiplication of 2 digits.
- * @a: 1st digit
- * @b; 2nd digit
- * Return: Always 0 (Success)
- */
+* mul - function that multiplies two integers
+* @a: First integer
+* @b: Second integer
+* Return: mul.
+*/
 
 int mul(int a, int b)
 {

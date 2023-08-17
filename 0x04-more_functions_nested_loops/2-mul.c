@@ -3,7 +3,7 @@
 /**
  * mul - returns the multiplication of 2 digits.
  * @a: 1st digit
- * @b; 2nd digit 
+ * @b; 2nd digit
  * Return: Always 0 (Success)
  */
 

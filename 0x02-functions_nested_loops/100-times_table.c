@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
- * print_times_table: prints the n times table, starting with 0.
- *
- * Return: Always 0.
+ * print_times_table - Print the `n` times table, starting with 0.
+ * Description: If `n` is greater than 15 or less than 0, print nothing.
+ * @n: int type number
  */
 
 void print_times_table(int n)
@@ -36,9 +36,7 @@ void print_times_table(int n)
 					_putchar('0' + k);
 				}
 				else
-				{
 					_putchar('0' + k);
-				}
 				if (j != n)
 				{
 					_putchar(',');
@@ -49,7 +47,5 @@ void print_times_table(int n)
 		}
 	}
 	else
-	{
 		return;
-	}
 }

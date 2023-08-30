@@ -11,6 +11,8 @@ int _sqrt_recursion(int n);
 int sq_rt(int n, int i);
 int c_prime(int n, int i);
 int is_prime_number(int n);
+int get_len(char *s);
+int palin(char *s, int l);
 int is_palindrome(char *s);
 int wildcmp(char *s1, char *s2);
 

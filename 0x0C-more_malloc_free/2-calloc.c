@@ -2,6 +2,25 @@
 #include <stdlib.h>
 
 /**
+ * _mem - fills memory with a constant byte.
+ * @s: pointer to put the constant
+ * @b: constant
+ * @n: max bytes to use
+ * Return: s
+ */
+
+char *_mem(char *s, char b, unsigned int n)
+{
+	char *p = s;
+
+	while (n--)
+	{
+		*s++ = b;
+	}
+	return (p);
+}
+
+/**
  * _calloc - allocates memory for an array given number of elements and size
  * @nmemb: number of elements
  * @size: size of each element
@@ -10,18 +29,16 @@
 
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	unsigned int i;
-	char *s;
+	void *m;
 
-	if (nmemb <= 0 || size <= 0)
-		return (NULL);
-	s = malloc(nmemb * size);
-	if (s == NULL)
-		return (NULL);
-
-	for (i = 0; i < nmemb; i++)
+	if (size == 0 || nmemb == 0)
 	{
-		s[i] = 0;
+		return (NULL);
 	}
-	return (s);
+	m = malloc(sizeof(int) * nmemb);
+
+	if (m == 0)
+		return (NULL);
+	_mem(m, 0, sizeof(int) * nmemb);
+	return (m);
 }

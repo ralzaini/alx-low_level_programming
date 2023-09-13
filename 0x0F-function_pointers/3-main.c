@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		exit(99);
 	}
-	
+
 	if (!b && (argv[2][0] == '/' || argv[2][0] == '%'))
 	{
 		printf("Error\n");
@@ -38,5 +38,5 @@ int main(int argc, char *argv[])
 
 	printf("%d\n", o_f(a, b));
 
-	return(0);
+	return (0);
 }

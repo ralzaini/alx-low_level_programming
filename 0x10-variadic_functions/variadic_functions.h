@@ -4,10 +4,10 @@
 #include <stdarg.h>
 
 /**
- * struct typ - Struct operators
+ * struct choose - Struct operators
  *
- * @s: Char
- * @t: The function associated
+ * @choose: Char
+ * @f: The function associated
  */
 
 typedef struct choose

@@ -6,6 +6,7 @@
 /**
  * _print_char - print char type element from va_list
  * @args: va_list passed to function
+ * @separator: separating characters
  */
 
 void _print_char(char *separator, va_list args)
@@ -16,6 +17,7 @@ void _print_char(char *separator, va_list args)
 /**
  * _print_int - print int type element from va_list
  * @args: va_list passed to function
+ * @separator: separating characters
  */
 
 void _print_int(char *separator, va_list args)
@@ -26,6 +28,7 @@ void _print_int(char *separator, va_list args)
 /**
  * _print_float - print double type element from va_list
  * @args: va_list passed to function
+ * @separator: separating characters
  */
 
 void _print_float(char *separator, va_list args)
@@ -36,7 +39,7 @@ void _print_float(char *separator, va_list args)
 /**
  * _print_str - print string type element from va_list
  * @args: va_list passed to function
- * @str: string to be printed
+ * @separator: separating characters
  */
 
 void _print_str(char *separator, va_list args)
@@ -52,7 +55,7 @@ void _print_str(char *separator, va_list args)
 }
 
 /**
- * _print_all - prints anything
+ * print_all - prints anything
  * @format: format is list of types of arguements
  */
 

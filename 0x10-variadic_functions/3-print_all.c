@@ -8,9 +8,9 @@
  * @args: va_list passed to function
  */
 
-void _print_char(va_list args)
+void _print_char(char *separator, va_list args)
 {
-	printf("%c", va_arg(args, int));
+	printf("%s%c", separator, va_arg(args, int));
 }
 
 /**
@@ -18,9 +18,9 @@ void _print_char(va_list args)
  * @args: va_list passed to function
  */
 
-void _print_int(va_list args)
+void _print_int(char *separator, va_list args)
 {
-	printf("%d", va_arg(args, int));
+	printf("%s%d", separator, va_arg(args, int));
 }
 
 /**
@@ -28,9 +28,9 @@ void _print_int(va_list args)
  * @args: va_list passed to function
  */
 
-void _print_float(va_list args)
+void _print_float(char *separator, va_list args)
 {
-	printf("%f", va_arg(args, double));
+	printf("%s%f", separator, va_arg(args, double));
 }
 
 /**
@@ -39,7 +39,7 @@ void _print_float(va_list args)
  * @str: string to be printed
  */
 
-void _print_str(va_list args)
+void _print_str(char *separator, va_list args)
 {
 	char *str;
 
@@ -48,7 +48,7 @@ void _print_str(va_list args)
 	{
 		str = "(nil)";
 	}
-	printf("%s", str);
+	printf("%s%s", separator, str);
 }
 
 /**
@@ -62,7 +62,7 @@ void print_all(const char * const format, ...)
 	char *separator = "";
 	va_list args;
 
-	choose_t choices[] = {
+	token_t tokens[] = {
 		{"c", _print_char},
 		{"d", _print_int},
 		{"f", _print_float},
@@ -75,12 +75,11 @@ void print_all(const char * const format, ...)
 	while (format && format[i])
 	{
 		j = 0;
-		while (choices[j].choose)
+		while (tokens[j].token)
 		{
-			if (format[i] == choices[j].choose[0])
+			if (format[i] == tokens[j].token[0])
 			{
-				printf("%s", separator);
-				choices[j].f(args);
+				tokens[j].f(separator, args);
 				separator = ", ";
 			}
 			j++;

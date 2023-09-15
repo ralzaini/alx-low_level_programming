@@ -10,11 +10,11 @@
  * @t: The function associated
  */
 
-typedef struct checker
+typedef struct choose
 {
-	char *type;
-	void (*f)();
-} checker;
+	char *choose;
+	void (*f)( va_list);
+} choose_t;
 
 int sum_them_all(const unsigned int n, ...);
 void print_numbers(const char *separator, const unsigned int n, ...);

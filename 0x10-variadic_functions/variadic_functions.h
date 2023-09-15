@@ -10,11 +10,11 @@
  * @t: The function associated
  */
 
-typedef struct token
+typedef struct choose
 {
-	char *token;
+	char *choose;
 	void (*f)(char *, va_list);
-} token_t;
+} choices_t;
 
 int sum_them_all(const unsigned int n, ...);
 void print_numbers(const char *separator, const unsigned int n, ...);

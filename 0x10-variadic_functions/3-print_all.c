@@ -62,9 +62,9 @@ void print_all(const char * const format, ...)
 	char *separator = "";
 	va_list args;
 
-	token_t tokens[] = {
+	choices_t choices[] = {
 		{"c", _print_char},
-		{"d", _print_int},
+		{"i", _print_int},
 		{"f", _print_float},
 		{"s", _print_str},
 		{NULL, NULL}
@@ -75,17 +75,17 @@ void print_all(const char * const format, ...)
 	while (format && format[i])
 	{
 		j = 0;
-		while (tokens[j].token)
+		while (choices[j].choose)
 		{
-			if (format[i] == tokens[j].token[0])
+			if (format[i] == choices[j].choose[0])
 			{
-				tokens[j].f(separator, args);
+				choices[j].f(separator, args);
 				separator = ", ";
 			}
 			j++;
 		}
 		i++;
 	}
-	printf("\n");
 	va_end(args);
+	printf("\n");
 }

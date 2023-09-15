@@ -1,87 +1,92 @@
 #include "variadic_functions.h"
-#include <stdlib.h>
+#include <stdarg.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 /**
- * _printcharacter - print char type element from va_list
+ * _print_char - print char type element from va_list
  * @args: va_list passed to function
  */
 
-void _printcharacter(va_list args)
+void _print_char(va_list args)
 {
 	printf("%c", va_arg(args, int));
 }
 
 /**
- * _printfloat - print float type element from va_list
+ * _print_int - print int type element from va_list
  * @args: va_list passed to function
  */
 
-void _printfloat(va_list args)
-{
-	printf("%f", va_arg(args, double));
-}
-
-/**
- * _printinteger - print int type element from va_list
- * @args: va_list passed to function
- */
-
-void _printinteger(va_list args)
+void _print_int(va_list args)
 {
 	printf("%d", va_arg(args, int));
 }
 
 /**
- * _printstring - print string element from va_list
+ * _print_float - print double type element from va_list
  * @args: va_list passed to function
  */
 
-void _printstring(va_list args)
+void _print_float(va_list args)
 {
-	char *string;
-
-	string = va_arg(args, char *);
-	if (string == NULL)
-	{
-		string = "(nil)";
-	}
-	printf("%s", string);
+	printf("%f", va_arg(args, double));
 }
 
 /**
- * print_all - prints out all stuff
+ * _print_str - print string type element from va_list
+ * @args: va_list passed to function
+ * @str: string to be printed
+ */
+
+void _print_str(va_list args)
+{
+	char *str;
+
+	str = va_arg(args, char *);
+	if (str == NULL)
+	{
+		str = "(nil)";
+	}
+	printf("%s", str);
+}
+
+/**
+ * _print_all - prints anything
  * @format: format is list of types of arguements
  */
 
 void print_all(const char * const format, ...)
 {
-	unsigned int i, j;
+	int i = 0, j;
+	char *separator = "";
 	va_list args;
-	char *separator;
 
-	checker storage[] = {
-		{"c", _printcharacter},
-		{"f", _printfloat},
-		{"d", _printinteger},
-		{"s", _printstring},
+	choose_t choices[] = {
+		{"c", _print_char},
+		{"d", _print_int},
+		{"f", _print_float},
+		{"s", _print_str},
 		{NULL, NULL}
 	};
 
 	va_start(args, format);
-	i = 0;
-	separator = "";
-	while (format != NULL && format[i / 4] != '\0')
+
+	while (format && format[i])
 	{
-		j = i % 4;
-		if (storage[j].type[0] == format[i / 4])
+		j = 0;
+		while (choices[j].choose)
 		{
-			printf("%s", separator);
-			storage[j].f(args);
-			separator = ", ";
+			if (format[i] == choices[j].choose[0])
+			{
+				printf("%s", separator);
+				choices[j].f(args);
+				separator = ", ";
+			}
+			j++;
 		}
 		i++;
 	}
-	va_end(args);
 	printf("\n");
+	va_end(args);
 }

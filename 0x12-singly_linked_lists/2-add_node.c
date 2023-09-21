@@ -1,6 +1,7 @@
 #include "lists.h"
 #include <string.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 /**
  * add_node - add a new node at the beginning of `list_t` list
@@ -14,7 +15,7 @@ list_t *add_node(list_t **head, const char *str)
 	list_t *new_node;
 	int i;
 
-	for (i = 0; dup_str[i] != '\0'; i++)
+	for (i = 0; str[i] != '\0'; i++)
 		;
 	new_node = malloc(sizeof(list_t));
 	if (new_node == NULL)

@@ -1,24 +1,6 @@
 #include "main.h"
 
 /**
-*_strlen - returns the length of a string..
-*@s: value to be evaluate.
-*Return: not.
-*/
-
-int _strlen(char *s)
-{
-	int i = 0;
-
-	while (*s != '\0')
-	{
-		i++;
-		s++;
-	}
-	return (i);
-}
-
-/**
  * create_file - Creates a file.
  * standard output.
  * @filename: Name of the file to create.
@@ -28,16 +10,26 @@ int _strlen(char *s)
 
 int create_file(const char *filename, char *text_content)
 {
-	int fd;
-	ssize_t rcount = 0, len = _strlen(text_content);
+	int fd, lenght;
+	ssize_t res_write;
 
-	if (!filename)
+	if (filename == NULL)
 		return (-1);
-	fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC | S_IRUSR | S_IWUSR);
+	fd = open(filename, O_CREAT | O_WRONLY | O_TRUNC, 0600);
 	if (fd == -1)
 		return (-1);
-	if (len)
-		rcount = write(fd, text_content, len);
+	if (text_content != NULL)
+	{
+		lenght = 0;
+		while (*(text_content + lenght) != '\0')
+			lenght++;
+		res_write = write(fd, text_content, lenght);
+		if (res_write == -1)
+		{
+			write(1, "fails", 6);
+			return (-1);
+		}
+	}
 	close(fd);
-	return (rcount == len ? 1 : -1);
+	return (1);
 }

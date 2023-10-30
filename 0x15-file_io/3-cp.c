@@ -7,7 +7,7 @@
 #include <stdio.h>
 
 /**
- * _error - Read file.
+ * _error - Read file
  * @e: Error number
  * @filename: File name
  */

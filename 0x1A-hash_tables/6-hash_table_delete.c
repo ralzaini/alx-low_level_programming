@@ -6,6 +6,7 @@
  *
  * REturn: nothing
  */
+
 void hash_table_delete(hash_table_t *ht)
 {
 	hash_node_t *tmp = NULL, *current = NULL;
